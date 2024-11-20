@@ -2,7 +2,7 @@ local Extensions = require("harpoon.extensions")
 local Logger = require("harpoon.logger")
 local Path = require("plenary.path")
 local function normalize_path(buf_name, root)
-    return Path:new(buf_name):make_relative(root)
+    return vim.fs.normalize(Path:new(buf_name):make_relative(root))
 end
 local function to_exact_name(value)
     return "^" .. value .. "$"
